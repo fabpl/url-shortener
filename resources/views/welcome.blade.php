@@ -1,34 +1,39 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo/>
-        </x-slot>
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+        <div>
+            <h2 class="text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+                {{ __('Make your URL') }}
+                <br class="xl:hidden">
+                <span class="text-indigo-600">{{ __('shorter') }}</span>
+            </h2>
 
-        <h2 class="text-2xl leading-10 font-extrabold text-gray-900 sm:text-3xl sm:leading-none md:text-4xl">
-            {{ __('Make your URL') }}
-            <span class="text-indigo-600">{{ __('shorter') }}</span>
-        </h2>
+            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                {{ __('Simplify your links, track & manage them') }}
+            </p>
 
-        <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-            {{ __('Simplify your links, track & manage them') }}
-        </p>
-
-        <div class="flex items-center justify-end mt-4">
-            @auth
-                <a href="{{ route('dashboard') }}"
-                   class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
-                    {{ __('Dashboard') }}
-                </a>
-            @else
-                <a href="{{ route('login') }}"
-                   class="mr-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
-                    {{ __('Login') }}
-                </a>
-                <a href="{{ route('register') }}"
-                   class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 transition ease-in-out duration-150">
-                    {{ __('Register') }}
-                </a>
-            @endif
+            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                @auth
+                    <div class="rounded-md shadow">
+                        <a href="{{ route('dashboard') }}"
+                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                            {{ __('Dashboard') }}
+                        </a>
+                    </div>
+                @else
+                    <div class="rounded-md shadow">
+                        <a href="{{ route('login') }}"
+                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                            {{ __('Login') }}
+                        </a>
+                    </div>
+                    <div class="mt-3 sm:mt-0 sm:ml-3">
+                        <a href="{{ route('register') }}"
+                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                            {{ __('Register') }}
+                        </a>
+                    </div>
+                @endif
+            </div>
         </div>
-    </x-jet-authentication-card>
+    </div>
 </x-guest-layout>
