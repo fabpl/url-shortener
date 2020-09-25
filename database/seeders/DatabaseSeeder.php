@@ -30,6 +30,8 @@ class DatabaseSeeder extends Seeder
             'url' => 'https://fabpl.github.io/',
         ]);
 
+        Link::factory(20)->create(['user_id' => $user->id]);
+
         // User::factory(10)->create();
     }
 }

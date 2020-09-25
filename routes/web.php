@@ -17,12 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 Route::get('/{uid}', function ($uid) {
     $link = \App\Models\Link::whereUid($uid)->firstOrFail();
 
     return response()->redirectTo($link->url);
 });
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
